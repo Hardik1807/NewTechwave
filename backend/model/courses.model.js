@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-mongoose.set('strictQuery', true);
+
 const productSchema=mongoose.Schema({
     image:{
         type:String,
@@ -33,10 +33,7 @@ const productSchema=mongoose.Schema({
         type:String,
         required:true
     },
-    students:{
-        type:Number,
-        require:true
-    },
+    
     hours:{
         type:Number,
         require:true

@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongo_container
+    ports:
+      - "27017:27017" # Expose MongoDB to localhost (optional)
+    environment:
+      MONGO_INITDB_DATABASE: myapp
+    networks:
+      - app-network
+
+  backend:
+    build: ./backend # Path to backend Dockerfile
+    container_name: backend_container
+    ports:
+      - "8080:8080" # Backend exposed on port 8080
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/myapp
+      - PORT=8080
+    depends_on:
+      - mongodb # Ensures MongoDB starts first
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend # Path to frontend Dockerfile
+    container_name: frontend_container
+    ports:
+      - "3000:3000" # Frontend exposed on port 3000
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:8080
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

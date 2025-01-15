@@ -1,3 +1,3 @@
 
 
-export const url = "https://tech-wave-backend-server.onrender.com"
+export const url = "http://localhost:8080"

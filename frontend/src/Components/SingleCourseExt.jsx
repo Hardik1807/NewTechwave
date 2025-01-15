@@ -89,8 +89,7 @@ const nav=useNavigate();
     })
     .catch((err) => console.log(err));
   }
-  }
-
+}
   return (
     <DIV>
       {/* for alert message */}
@@ -116,7 +115,7 @@ const nav=useNavigate();
           <h1 className="h1">{title}</h1>
       <Box m={"20px 0"}>
             <h4 style={{lineHeight:"1.5"}}>{rating} ⭐⭐⭐⭐</h4> 
-            <h4 style={{lineHeight:"1.5"}}>{students}+ Students</h4> 
+            {/* <h4 style={{lineHeight:"1.5"}}>{students}+ Students</h4>  */}
             <h4 style={{lineHeight:"1.5"}}>Created by <span style={{color:"rgb(0,86,210)"}}>{instructor}</span></h4> 
           <div style={{display:"flex",alignItems:"center",lineHeight:"1.5"}}>
           <TbWorld className="world" size={"1.1rem"}/><h4>{language}</h4>

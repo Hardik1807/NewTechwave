@@ -1,0 +1,44 @@
+# # Use the official Node.js image
+# FROM node:14
+
+# # Set the working directory
+# WORKDIR /app
+
+# # Copy the package.json and package-lock.json files
+# COPY ./package.json /app
+
+# # Install dependencies
+# RUN npm install
+
+# # Copy the rest of the application code
+# COPY . /app
+
+# # Expose the port the app runs on (e.g., 3000 for Create React App)
+# EXPOSE 3000
+
+# # Start the React development server
+# CMD ["npm", "start"]
+
+
+# Use an official Node.js runtime as a parent image
+FROM node:18
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package*.json ./
+RUN npm install
+
+# Bundle app source
+COPY . .
+
+# Environment variables
+ENV PORT=3000
+
+# Expose the port
+EXPOSE 3000
+
+# Start the app
+CMD ["npm", "start"]
+
