@@ -1,0 +1,1 @@
+TechWave is a platform where you can explore and purchase tech-related courses, such as ReactJS, Node.js, and more. It offers an intuitive interface for adding new courses and includes a dummy payment gateway for practice purposes. The project is designed to work seamlessly with Docker for easy deployment and scalability.
